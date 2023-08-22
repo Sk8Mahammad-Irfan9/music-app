@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'javascript/musicSlider.css' %}">
+<link rel="stylesheet" href="{% static 'javascript/music.css' %}">
+{% endblock css %}
+
+{% block title %}
+Song
+{% endblock title %}
+{% block content %}
+
+<div class="container">
+
+<div class="slideshow-container">
+  {% for song in songs %}
+  <div class="mySlides fade">
+    <img src="{% static 'javascript/mlogo.jpg' %}" style="width: 100%" />
+    <audio id="audio" src="{{song.audio_file.url}}"></audio>
+    <div class="text">{{song.title}} - {{song.artist}}</div>
+  </div>
+  {% endfor %}
+</div>
+
+
+<div class="controler">
+  <button id="prev" class="prev" onclick="plusSlides(-1)">⏮</button>
+  <button id="play-pause" class="play">▶️</button>
+  <button id="next" class="next" onclick="plusSlides(1)">⏭</button>
+</div>
+</div>
+
+<script src="{% static 'javascript/music_player.js' %}"></script>
+<script src="{% static 'javascript/slideMusic.js' %}"></script>
+
+{% endblock content %}

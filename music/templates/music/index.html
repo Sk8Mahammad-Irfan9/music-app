@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+All Songs
+{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'javascript/music.css' %}">
+{% endblock css %}
+
+{% block content %}
+<h1>All Songs list</h1>
+<ul>
+{% for song in tracks %}
+<div class="songs">
+    {% include "music/include/all_songs.html" %}
+</div>
+{% endfor %}
+</ul>
+<button id="prev">⏮</button>
+<button id="play-pause">▶️</button>
+<button id="next">⏭</button>
+
+<script src="{% static 'javascript/music_player.js' %}"></script>
+{% endblock content %}

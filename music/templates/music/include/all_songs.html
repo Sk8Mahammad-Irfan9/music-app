@@ -1,0 +1,22 @@
+{% load static %}
+<img src="{% static 'javascript/mlogo.jpg' %}" alt="">
+<li>
+    {{song.title}} - {{song.artist}}
+    <audio id="audio-{{song.id}}" src="{{song.audio_file.url}}">
+        
+    </audio>
+</li>
+
+{% comment %} <button class="play-pause" data-audio-id="{{song.id}}">▶</button>
+<button class="next" data-audio-id="{{song.id}}">⏭</button>
+<button class="previous" data-audio-id="{{song.id}}">⏮</button> {% endcomment %}
+
+<div class="progress-container">
+    <div class="progress" id="progress- {{song.id}}"></div>
+</div>
+
+{% comment %} <button id="prev">⏮</button>
+<button id="play-pause">▶</button>
+<button id="next">⏭</button> {% endcomment %}
+
+{% comment %} <script src="{% static 'javascript/music_player.js' %}"></script> {% endcomment %}
